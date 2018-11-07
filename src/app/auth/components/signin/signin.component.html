@@ -1,0 +1,24 @@
+<div class="login-container">
+  <mat-card class="login-box">
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div>
+          <mat-form-field class="email-input">
+            <input placeholder="Email" matInput formControlName="email" />
+            <mat-error *ngIf="form.controls.email.hasError('required')">
+              This field is required.
+            </mat-error>
+            <mat-error *ngIf="form.controls.email.hasError('email')">
+              This field is should be an email.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <button [disabled]="form.invalid" class="signin-button" mat-raised-button color="primary">
+            Sign In
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
